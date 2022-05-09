@@ -1,0 +1,54 @@
+package Final_demo;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import PageObjects.LoginPageObject;
+import PageObjects.RegistrationPageObj;
+import PageObjects.patientRegistration;
+import resources.Base_class1;
+
+public class Homepage extends Base_class1 {
+	@Test
+	public void hompagenavigation() throws IOException, InterruptedException {
+		driver = DriverInitilization();
+		driver.get("https://telangana.swasthasamanvaya.in:8443/TCCC_BETA/#/login");
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		LoginPageObject LPO = new LoginPageObject(driver);
+		LPO.enterusername().sendKeys("superadmin");
+		LPO.enterpassword().sendKeys("123");
+		LPO.selectunit().click();
+		Thread.sleep(2000);
+		LPO.clickLogin().click();
+
+		RegistrationPageObj RPO = new RegistrationPageObj(driver);
+		RPO.EnterInRegistrationPage().click();
+
+		patientRegistration PTR = new patientRegistration(driver);
+
+		PTR.FrontName().click();
+		PTR.Tag().click();
+		PTR.Firstname().sendKeys("Neha");
+		PTR.Middlename().sendKeys("cell");
+		PTR.Lastname().sendKeys("beans");
+		PTR.RadioButton().click();
+		PTR.Selectyear().sendKeys("1990");
+		PTR.SelectMonth().sendKeys("2");
+		PTR.SelectDay().sendKeys("10");
+		PTR.SelectGender().click();
+		PTR.SelectTag().click();
+		PTR.MobileNumber().sendKeys("0091919191");
+		PTR.STDCode().sendKeys("00000");
+		PTR.Phonenumber().sendKeys("1234693");
+		// PTR.Email().sendKeys("vvv@yahoo.com");
+		PTR.Address().sendKeys("jabalpur");
+		Thread.sleep(2000);
+		PTR.SubmitNext().click();
+
+	}
+
+}

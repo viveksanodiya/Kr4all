@@ -1,0 +1,40 @@
+package DemoPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+
+public class TataHospita {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\vivek\\Desktop\\selenium jars\\chromedriver_win32\\chromeDriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://telangana.swasthasamanvaya.in:8443/TCCC_BETA/#/login");
+		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("superadmin");
+		//driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("ayesha_a");
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123");
+		//driver.findElement(By.xpath("//input[@type='password']")).sendKeys("ayesha@2021");
+		Thread.sleep(2000);
+		/*WebElement Organization= driver.findElement(By.cssSelector("select[class='form-control rounded ng-pristine ng-valid ng-touched']"));
+	Select dropdown = new Select (Organization);
+	dropdown.selectByIndex(0);
+	dropdown.selectByVisibleText("HSS Telangana");*/
+	 
+	WebElement Unit = driver.findElement(By.xpath("//select[@class='form-control rounded ng-touched ng-valid ng-dirty']"));
+	Select dropDown = new Select (Unit);
+	dropDown.selectByIndex(3);
+	dropDown.selectByVisibleText("CCC");
+	System.out.println("dropDown.selectByVisibleText(\"CCC\")");
+	dropDown.selectByValue("CCC");
+	
+	
+
+	driver.findElement(By.xpath("//button[normalize-space()='Sign In']")).click();
+
+	}
+}

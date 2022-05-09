@@ -1,0 +1,24 @@
+package com.constractor;
+
+public class MyTest {
+
+	public MyTest(int, String)
+	{
+		int= value;
+		string= "name";
+	}
+	public void  MyTest1()
+	{
+		System.out.println("hii its mytest is pankaj ");
+	}
+	
+	public static void main(String[] args)
+	{
+		MyTest T= new MyTest();
+		T.MyTest1();
+		T.
+	}
+
+	
+}
+

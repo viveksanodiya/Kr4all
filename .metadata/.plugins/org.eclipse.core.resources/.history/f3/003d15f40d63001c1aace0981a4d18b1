@@ -1,0 +1,80 @@
+package DemoPackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+
+public class TataHospita {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\vivek\\Desktop\\selenium jars\\chromedriver_win32\\chromeDriver.exe");
+		WebDriver driver = new ChromeDriver();
+		// url
+		driver.get("https://telangana.swasthasamanvaya.in:8443/TCCC_BETA/#/login");
+		driver.manage().window().maximize();
+		// username
+		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("superadmin");
+		// driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("ayesha_a");
+		// password
+		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("123");
+		// driver.findElement(By.xpath("//input[@type='password']")).sendKeys("ayesha@2021");
+		Thread.sleep(2000);
+		// select option CCC
+		driver.findElement(By.xpath("//option[@value='2']")).click();
+
+// click on login button
+		driver.findElement(By.xpath("//button[normalize-space()='Sign In']")).click();
+		Thread.sleep(9000);
+		// click on registration page
+		driver.findElement(By.xpath("(//img[@class='img-responsive thumbnail'])[3]")).click();
+		Thread.sleep(6000);
+		// popup handling
+
+		Select frontName = new Select(driver.findElement(By.xpath("(//select[@type='text'])[1]")));
+
+		Thread.sleep(3000);
+		frontName.selectByVisibleText("Mrs");
+
+		driver.findElement(By.xpath("//input[@placeholder='First Name']")).sendKeys("supriya");
+		driver.findElement(By.xpath("//input[@placeholder='Middle Name']")).sendKeys("kk");
+		driver.findElement(By.xpath("//input[@placeholder='Last Name']")).sendKeys("kk");
+		Thread.sleep(2000);
+		// driver.findElement(By.cssSelector("div[class='col-md-1']
+		// input[name='selectedtype']"));
+//		driver.findElement(By.id("dob")).click();
+		// select year month day
+		driver.findElement(By.xpath("(//input[@name='selectedtype'])[2]")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Year(s)']")).sendKeys("30");
+		driver.findElement(By.xpath("//input[@placeholder='Month(s)']")).sendKeys("6");
+		driver.findElement(By.xpath("//input[@placeholder='Day(s)']")).sendKeys("1");
+
+		// select gender
+		// Select gender = new
+		// Select(driver.findElement(By.xpath("(//select[@type='text'])[1]")));
+		Select gender = new Select(driver.findElement(By.name("gender")));
+
+		Thread.sleep(3000);
+		gender.selectByVisibleText("Male");
+
+		// mobile number
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@placeholder='Mobile No.']")).sendKeys("5225369874");
+		// std code and phone number
+		driver.findElement(By.xpath("//input[@placeholder='STD']")).sendKeys("00000");
+		driver.findElement(By.xpath("//input[@placeholder='Phone']")).sendKeys("1236547");
+		driver.findElement(By.cssSelector("input[placeholder='Email Id']")).sendKeys("megha@gmail.com");
+
+		driver.findElement(By.xpath("//textarea[@style='text-transform: capitalize;']")).sendKeys("tg");
+		Thread.sleep(1000);
+
+		// for register and next
+		//driver.findElement(By.xpath("//button[normalize-space()='Register & Next']")).click();
+                              driver.findElement(By.cssSelector("button[type='submit']")).click();
+
+	}
+}

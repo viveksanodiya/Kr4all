@@ -1,0 +1,28 @@
+package com.constractor;
+
+public class MyTest {
+
+	public MyTest()
+	{
+		int id;
+		String  name;
+	}
+	public void  MyTest1()
+	{
+		System.out.println("me hu don");
+	}
+	public void  MyTest2()
+	{
+		System.out.println("me hu hero");
+	}
+	public static void main(String[] args)
+	{
+		MyTest T= new MyTest();
+		T.MyTest1();
+		T.MyTest2();
+		
+	}
+
+	
+}
+

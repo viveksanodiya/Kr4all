@@ -1,0 +1,39 @@
+package com.abstraction;
+
+abstract class bike {
+	bike()
+	{
+		System.out.println("bike is created");
+	}
+
+	abstract void run();
+	void changeGear()
+	{
+		System.out.println("gear change....");
+	}
+//creating a child class which inherits abstract class
+	class Honda extends bike {
+		void run ()
+		{
+			System.out.println("running safely....");
+		}
+	}
+
+// creating a test class which calls abstracted and none abstract methods 
+	class TestAbstraction2
+	
+	{	
+	
+	
+		public static void main(String[] agrs)
+		{
+			bike obj = new Honda();
+			
+			obj.run();
+			obj.changeGear();
+		}
+  }
+}
+
+
+

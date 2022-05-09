@@ -1,0 +1,10 @@
+package MyPackage;
+
+import java.io.FileInputStream;
+
+public class TryCatchHndl {
+public static void main(String[] args)
+{
+FileInputStream fis = new FileInputStream("d:/abc.txt");
+}
+}
